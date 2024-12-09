@@ -1,4 +1,4 @@
-test
+合并
 ```js
 let res = [...coordinates] //将字符串拆分形成数组
 ['a', 'c', 'e', 'g'].includes(res[0]) //判断res中有没有acef
