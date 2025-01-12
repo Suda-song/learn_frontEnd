@@ -171,7 +171,7 @@ import CustomInput from './CustomInput.vue';
 const message = ref<string>(''); // 指定类型为 string
 </script>
 
-
+//在父组件中，我们使用 `v-model` 绑定了 `message`，这个 `v-model` 会自动处理 `update:modelValue` 事件的监听。当子组件触发 `update:modelValue` 时，`message` 的值会自动更新。
 <!-- CustomInput.vue -->
 <template>
   <input :value="modelValue" @input="updateValue" />
@@ -199,7 +199,7 @@ function updateValue(event: Event): void {
  
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNzQ2Njc4ODIsMzQ0NDUxMDMyLDgxNT
-YyMzk0NywyMDQ4NzgxMzIsNDE4ODA1MDgxLC03Njk3MzQyNTAs
-LTIxMDMyMDk3NTNdfQ==
+eyJoaXN0b3J5IjpbMTEyNTY5MjIzLC0xMjc0NjY3ODgyLDM0ND
+Q1MTAzMiw4MTU2MjM5NDcsMjA0ODc4MTMyLDQxODgwNTA4MSwt
+NzY5NzM0MjUwLC0yMTAzMjA5NzUzXX0=
 -->
