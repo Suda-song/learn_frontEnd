@@ -58,7 +58,9 @@ function changeTitle() {
 
 ```
 2. vue响应式的原理
- 在 Vue 3 中，响应式机制由 `Proxy` 来取代 `Object.defineProperty`。`Proxy` 是 ES6 新增的一个特性，可以直接对整个对象进行代理，包括其所有的属性和方法。它能更加简洁和高效地实现数据劫持。
+ 在 Vue 3 中，响应式机制由 `Proxy` 来取代 `Object.defineProperty`。
+ `Proxy` 是 ES6 新增的一个特性，可以直接对整个对象进行代理，包括其所有的属性和方法。它能更加简洁和高效地实现数据劫持。
+ 响应式的核心思想是：当数据发生变化时，自动更新与之相关的视图。Vue 的响应式系统通过 **依赖收集** 和 **视图更新机制** 实现这一目标。
  ```js
  function reactive(target) {
   const handler = {
@@ -78,6 +80,6 @@ function changeTitle() {
   
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDE4ODA1MDgxLC03Njk3MzQyNTAsLTIxMD
-MyMDk3NTNdfQ==
+eyJoaXN0b3J5IjpbMTQ0NzE4NDU2Miw0MTg4MDUwODEsLTc2OT
+czNDI1MCwtMjEwMzIwOTc1M119
 -->
