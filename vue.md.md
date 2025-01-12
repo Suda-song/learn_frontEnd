@@ -85,8 +85,8 @@ function changeTitle() {
 
 Vue 3 的响应式系统是基于 **发布-订阅模式**（Observer Pattern）实现的。当某个数据被访问时，它会将这个数据与当前的计算属性或视图组件关联起来（收集依赖）。当数据变化时，Vue 会通知依赖更新。
 
--   **`track`**：用于收集依赖，当属性被访问时调用，记录哪些组件或计算属性依赖于这个数据。
--   **`trigger`**：用于触发更新，当数据变化时调用，通知依赖更新。
+-   **`track`**：用于收集依赖，在访问响应式数据时，Vue 会调用 `track` 方法，记录当前的订阅者。
+-   **`trigger`**：用于触发更新，在修改响应式数据时，Vue 会调用 `trigger` 方法，通知所有相关订阅者。
 
 ### 2.4. **Vue 3 响应式系统的关键 API**
 `reactive` 用来将普通对象转换为响应式对象。所有嵌套的对象也会变成响应式的。
@@ -140,6 +140,7 @@ Vue 3 在性能上做了很多优化，尤其是在响应式系统上，以下�
   
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODE1NjIzOTQ3LDIwNDg3ODEzMiw0MTg4MD
-UwODEsLTc2OTczNDI1MCwtMjEwMzIwOTc1M119
+eyJoaXN0b3J5IjpbMzQ0NDUxMDMyLDgxNTYyMzk0NywyMDQ4Nz
+gxMzIsNDE4ODA1MDgxLC03Njk3MzQyNTAsLTIxMDMyMDk3NTNd
+fQ==
 -->
