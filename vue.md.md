@@ -188,7 +188,7 @@ const props = defineProps<{
 
 // 定义 emits 类型
 const emit = defineEmits<{
-  (e: 'update:another', value: string): void;
+  (e: 'update:another', value: string): void; //父组件v-model=“message”的情况下这里只能用modelvalue这个值
 }>();
 
 function updateValue(event: Event): void {
@@ -200,7 +200,7 @@ function updateValue(event: Event): void {
  
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEwMjk1MDM2NiwtMTI3NDY2Nzg4MiwzND
+eyJoaXN0b3J5IjpbLTUyNTkyNjAyNywtMTI3NDY2Nzg4MiwzND
 Q0NTEwMzIsODE1NjIzOTQ3LDIwNDg3ODEzMiw0MTg4MDUwODEs
 LTc2OTczNDI1MCwtMjEwMzIwOTc1M119
 -->
