@@ -101,11 +101,22 @@ count.value = 10;
 #### 2.4.3 `computed`
 
 `computed` 用于创建计算属性，它基于响应式数据，当数据发生变化时，`computed` 会自动重新计算。
-```VUE
+```JS
 import { computed, ref } from 'vue';
 
 const count = ref(0);
 const doubled = computed(() => count.value * 2);
+
+```
+#### 2.4.4 `watch`
+`watch` 用于观察响应式数据的变化，并在数据变化时执行回调。
+```JS
+import { watch, ref } from 'vue';
+
+const count = ref(0);
+watch(count, (newVal, oldVal) => {
+  console.log(`count changed from ${oldVal} to ${newVal}`);
+});
 
 ```
 ### 2.5. **性能优化**
@@ -118,6 +129,6 @@ Vue 3 在性能上做了很多优化，尤其是在响应式系统上，以下�
   
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxOTc5OTA5OCw0MTg4MDUwODEsLTc2OT
-czNDI1MCwtMjEwMzIwOTc1M119
+eyJoaXN0b3J5IjpbMjA0ODc4MTMyLDQxODgwNTA4MSwtNzY5Nz
+M0MjUwLC0yMTAzMjA5NzUzXX0=
 -->
