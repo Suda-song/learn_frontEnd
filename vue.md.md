@@ -57,8 +57,10 @@ function changeTitle() {
 </template>
 
 ```
-3. 
+2. vue响应式的原理
+ 在 Vue 3 中，响应式机制由 `Proxy` 来取代 `Object.defineProperty`。`Proxy` 是 ES6 新增的一个特性，可以直接对整个对象进行代理，包括其所有的属性和方法。它能更加简洁和高效地实现数据劫持。 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2OTczNDI1MCwtMjEwMzIwOTc1M119
+eyJoaXN0b3J5IjpbMTE0MDc4OTgyNSwtNzY5NzM0MjUwLC0yMT
+AzMjA5NzUzXX0=
 -->
