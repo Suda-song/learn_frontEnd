@@ -8,15 +8,17 @@
 <ChildComponent :title="parentTitle" /> //父组件的文档
 ```
 ```
+<script  setup  lang="ts">
 export default { 
 props: ['title'], // 接收父组件传递的数据 
-
+</script
 <temple>
+<button @click="$emit('update-title', '新的标题')">更新标题</button>
 <temple>
 }; //子组件的文档
 ```
 3. 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzMTQ3ODUyM119
+eyJoaXN0b3J5IjpbLTIxMDMyMDk3NTNdfQ==
 -->
