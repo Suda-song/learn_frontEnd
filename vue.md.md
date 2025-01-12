@@ -137,10 +137,12 @@ Vue 3 在性能上做了很多优化，尤其是在响应式系统上，以下�
 -   **懒代理**：Vue 3 采用懒代理（Lazy Proxy）的方式，只有在访问某个属性时才会将该属性转换为响应式。这样避免了一开始就对所有嵌套属性进行代理。
 -   **减少计算开销**：通过 `Proxy` 的设计，Vue 3 可以对整个对象进行代理，减少了 Vue 2 中对每个属性单独设置 `getter` 和 `setter` 的性能开销。
 -   **批量更新**：Vue 3 的响应式系统支持批量更新，可以在同一事件循环中处理多个数据变化，避免多次渲染
+
+#
   
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQ0NDUxMDMyLDgxNTYyMzk0NywyMDQ4Nz
-gxMzIsNDE4ODA1MDgxLC03Njk3MzQyNTAsLTIxMDMyMDk3NTNd
-fQ==
+eyJoaXN0b3J5IjpbLTE0ODA3OTg2MzUsMzQ0NDUxMDMyLDgxNT
+YyMzk0NywyMDQ4NzgxMzIsNDE4ODA1MDgxLC03Njk3MzQyNTAs
+LTIxMDMyMDk3NTNdfQ==
 -->
