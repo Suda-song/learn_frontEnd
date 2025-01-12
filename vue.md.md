@@ -158,7 +158,7 @@ const message = ref('');
 ```
 自定义
 `CustomInput` 组件通过 `modelValue` 接收来自父组件的值，并通过 `@input` 事件将更新的值通过 `update:modelValue` 事件发送回父组件。
-```JS
+```ts
 <!-- Parent.vue -->
 <template>
   <CustomInput v-model="message" />
@@ -191,7 +191,7 @@ function updateValue(event) {
  
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTYwNzkwNDk5LDM0NDQ1MTAzMiw4MTU2Mj
-M5NDcsMjA0ODc4MTMyLDQxODgwNTA4MSwtNzY5NzM0MjUwLC0y
-MTAzMjA5NzUzXX0=
+eyJoaXN0b3J5IjpbLTczOTk5OTI1MSwzNDQ0NTEwMzIsODE1Nj
+IzOTQ3LDIwNDg3ODEzMiw0MTg4MDUwODEsLTc2OTczNDI1MCwt
+MjEwMzIwOTc1M119
 -->
