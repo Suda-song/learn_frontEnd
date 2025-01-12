@@ -156,12 +156,42 @@ import { ref } from 'vue';
 const message = ref('');
 </script>
 ```
+自定义
+`CustomInput` 组件通过 `modelValue` 接收来自父组件的值，并通过 `@input` 事件将更新的值通过 `update:modelValue` 事件发送回父组件。
+```JS
+<!-- Parent.vue -->
+<template>
+  <CustomInput v-model="message" />
+</template>
 
+<script setup>
+import { ref } from 'vue';
+import CustomInput from './CustomInput.vue';
 
-  
+const message = ref('');
+</script>
 
+<!-- CustomInput.vue -->
+<template>
+  <input :value="modelValue" @input="updateValue" />
+</template>
+
+<script setup>
+defineProps({
+  modelValue: String,
+});
+
+defineEmits(['update:modelValue']);
+
+function updateValue(event) {
+  const newValue = event.target.value;
+  emit('update:modelValue', newValue);
+}
+</script>
+ 
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzE1MjM3MTEsMzQ0NDUxMDMyLDgxNT
-YyMzk0NywyMDQ4NzgxMzIsNDE4ODA1MDgxLC03Njk3MzQyNTAs
-LTIxMDMyMDk3NTNdfQ==
+eyJoaXN0b3J5IjpbOTYwNzkwNDk5LDM0NDQ1MTAzMiw4MTU2Mj
+M5NDcsMjA0ODc4MTMyLDQxODgwNTA4MSwtNzY5NzM0MjUwLC0y
+MTAzMjA5NzUzXX0=
 -->
