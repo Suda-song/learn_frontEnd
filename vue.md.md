@@ -188,7 +188,7 @@ const props = defineProps<{
 
 // 定义 emits 类型
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: string): void;
+  (e: 'update:another', value: string): void;
 }>();
 
 function updateValue(event: Event): void {
@@ -200,7 +200,7 @@ function updateValue(event: Event): void {
  
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTIxOTY3NDksLTEyNzQ2Njc4ODIsMz
-Q0NDUxMDMyLDgxNTYyMzk0NywyMDQ4NzgxMzIsNDE4ODA1MDgx
-LC03Njk3MzQyNTAsLTIxMDMyMDk3NTNdfQ==
+eyJoaXN0b3J5IjpbMTEwMjk1MDM2NiwtMTI3NDY2Nzg4MiwzND
+Q0NTEwMzIsODE1NjIzOTQ3LDIwNDg3ODEzMiw0MTg4MDUwODEs
+LTc2OTczNDI1MCwtMjEwMzIwOTc1M119
 -->
