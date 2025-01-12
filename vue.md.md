@@ -138,11 +138,30 @@ Vue 3 在性能上做了很多优化，尤其是在响应式系统上，以下�
 -   **减少计算开销**：通过 `Proxy` 的设计，Vue 3 可以对整个对象进行代理，减少了 Vue 2 中对每个属性单独设置 `getter` 和 `setter` 的性能开销。
 -   **批量更新**：Vue 3 的响应式系统支持批量更新，可以在同一事件循环中处理多个数据变化，避免多次渲染
 
-#
+# 3 vue双向绑定
+**Vue 的双向绑定**是指数据和视图之间的双向流动，即数据的变化会自动反映到视图中，视图的变化也能反过来更新数据。这是 Vue 响应式系统的一个核心特性，通常用于表单输入元素与数据的绑定，比如文本框、复选框等。
+
+Vue 使用 **数据劫持** 和 **发布-订阅模式**（通过 `getter` 和 `setter`）来实现这一特性。
+
+具体实现使用的是v-model
+```JS
+<template>
+  <input v-model="message" />
+  <p>{{ message }}</p>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const message = ref('');
+</script>
+```
+
+
   
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODA3OTg2MzUsMzQ0NDUxMDMyLDgxNT
+eyJoaXN0b3J5IjpbLTE5NzE1MjM3MTEsMzQ0NDUxMDMyLDgxNT
 YyMzk0NywyMDQ4NzgxMzIsNDE4ODA1MDgxLC03Njk3MzQyNTAs
 LTIxMDMyMDk3NTNdfQ==
 -->
