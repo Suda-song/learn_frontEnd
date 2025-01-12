@@ -1,6 +1,6 @@
 # 1. html5 新特性
 1.1 语义化标签：
-新增了一些语义化的标签，让文档结构更清晰，比如 <header>、<footer>、<article>、<section>、<nav> 等。
+新增了一些语义化的标签 <header>、<footer>、<article>、<section>、<nav> 等。
 1.2 多媒体标签：
 <audio> 和 <video>：支持音频和视频的嵌入，提供控制属性（如播放、暂停、音量控制等），不需要依赖 Flash。
 支持格式：如 MP4、WebM、Ogg 等。
@@ -23,5 +23,5 @@ HTML5 支持在 HTML 文档中嵌入 SVG（可缩放矢量图形），用于绘�
 1.10 WebSocket：
 实现了客户端与服务器之间的双向通信，比传统的 HTTP 请求更高效，适合即时通讯、实时数据同步等场景。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3NDE3NzA2Ml19
+eyJoaXN0b3J5IjpbLTEwMzQ3NzQwNDddfQ==
 -->
