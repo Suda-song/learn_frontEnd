@@ -164,34 +164,42 @@ const message = ref('');
   <CustomInput v-model="message" />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import CustomInput from './CustomInput.vue';
 
-const message = ref('');
+const message = ref<string>(''); // 指定类型为 string
 </script>
+
 
 <!-- CustomInput.vue -->
 <template>
   <input :value="modelValue" @input="updateValue" />
 </template>
 
-<script setup>
-defineProps({
-  modelValue: String,
-});
+<script setup lang="ts">
+import { defineProps, defineEmits } from 'vue';
 
-defineEmits(['update:modelValue']);
+// 定义 props 类型
+const props = defineProps<{
+  modelValue: string;
+}>();
 
-function updateValue(event) {
-  const newValue = event.target.value;
+// 定义 emits 类型
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: string): void;
+}>();
+
+function updateValue(event: Event): void {
+  const newValue = (event.target as HTMLInputElement).value; // 类型断言
   emit('update:modelValue', newValue);
 }
 </script>
+
  
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczOTk5OTI1MSwzNDQ0NTEwMzIsODE1Nj
-IzOTQ3LDIwNDg3ODEzMiw0MTg4MDUwODEsLTc2OTczNDI1MCwt
-MjEwMzIwOTc1M119
+eyJoaXN0b3J5IjpbLTEyNzQ2Njc4ODIsMzQ0NDUxMDMyLDgxNT
+YyMzk0NywyMDQ4NzgxMzIsNDE4ODA1MDgxLC03Njk3MzQyNTAs
+LTIxMDMyMDk3NTNdfQ==
 -->
