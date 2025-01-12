@@ -61,6 +61,10 @@ function changeTitle() {
  在 Vue 3 中，响应式机制由 `Proxy` 来取代 `Object.defineProperty`。
  `Proxy` 是 ES6 新增的一个特性，可以直接对整个对象进行代理，包括其所有的属性和方法。它能更加简洁和高效地实现数据劫持。
  响应式的核心思想是：当数据发生变化时，自动更新与之相关的视图。Vue 的响应式系统通过 **依赖收集** 和 **视图更新机制** 实现这一目标。
+ 
+当我们访问响应式对象的某个属性时，`get` 被触发；当我们设置属性时，`set` 被触发。
+-   **`get`**：拦截对对象的访问，收集依赖。
+-   **`set`**：拦截对对象的修改，通知视图更新。
  ```js
  function reactive(target) {
   const handler = {
@@ -77,6 +81,13 @@ function changeTitle() {
   return new Proxy(target, handler); // 创建并返回 Proxy 对象
 }
 ```
+#### 2.3 依赖收集与更新
+
+Vue 3 的响应式系统是基于 **发布-订阅模式**（Observer Pattern）实现的。当某个数据被访问时，它会将这个数据与当前的计算属性或视图组件关联起来（收集依赖）。当数据变化时，Vue 会通知依赖更新。
+
+-   **`track`**：用于收集依赖，当属性被访问时调用，记录哪些组件或计算属性依赖于这个数据。
+-   **`trigger`**：用于触发更新，当数据变化时调用，通知依赖更新。
+
 ### 2.4. **Vue 3 响应式系统的关键 API**
 `reactive` 用来将普通对象转换为响应式对象。所有嵌套的对象也会变成响应式的。
 #### 2.4.1 `reactive`
@@ -129,6 +140,6 @@ Vue 3 在性能上做了很多优化，尤其是在响应式系统上，以下�
   
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA0ODc4MTMyLDQxODgwNTA4MSwtNzY5Nz
-M0MjUwLC0yMTAzMjA5NzUzXX0=
+eyJoaXN0b3J5IjpbLTExNzMzNjU2MDQsMjA0ODc4MTMyLDQxOD
+gwNTA4MSwtNzY5NzM0MjUwLC0yMTAzMjA5NzUzXX0=
 -->
