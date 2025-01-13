@@ -36,8 +36,8 @@ post，请求不可以缓存
 get，请求页面后退时，不产生影响
 post，请求页面后退时，会重新提交请求
 2.5 数据包
-get， 产生一个tcp包，
-post，产生两个tcp包
+get， 产生一个tcp包，浏览器会把http header和data一并发送出去，服务器响应200返回数据；
+post，产生两个tcp包，浏览器先发送header，服务器响应100 continue，浏览器响应 200
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjU5OTkzNzhdfQ==
+eyJoaXN0b3J5IjpbLTk4MTcxMDY5Ml19
 -->
