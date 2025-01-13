@@ -960,14 +960,21 @@ return function(){
 function(fn, wait, immediate = false){
 	const timer = null 
 	return function(){
-		if(timer){}
+		if(timer){
 			clearInterval(timer)
 			timer = null
 		}
+		if(immediate){
+			
+		}else{
+			settimeout 
+		}
+	}
 		
 	
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1ODE4NzcyNCwtNTkwNTA2NDczXX0=
+eyJoaXN0b3J5IjpbMTAyNTY2NTI0MywyMDU4MTg3NzI0LC01OT
+A1MDY0NzNdfQ==
 -->
