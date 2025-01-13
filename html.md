@@ -35,7 +35,9 @@ post，请求不可以缓存
 2.4 后退页面请求
 get，请求页面后退时，不产生影响
 post，请求页面后退时，会重新提交请求
-2.5 
+2.5 数据包
+get， 产生一个tcp包，
+post，产生两个tcp包
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4MzkyNzc1NV19
+eyJoaXN0b3J5IjpbLTEyMjU5OTkzNzhdfQ==
 -->
