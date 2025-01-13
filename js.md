@@ -354,6 +354,41 @@ Undefined：表示一个变量声明了但未赋值。
 Null：表示一个空值或无值。
 Symbol：表示一个唯一的、不可变的值。
 BigInt：表示超大整数。
+## 数据结构：
+Map
+键值对：每个 `Map` 由键（key）和值（value）组成。
+-   `set(key, value)`：设置键值对。
+-   `get(key)`：根据键获取对应的值。
+-   `has(key)`：检查是否存在指定的键。
+-   `delete(key)`：删除指定的键值对。
+-   `clear()`：清空所有键值对。、
+
+WeakMap
+`WeakMap` 是一个类似 `Map` 的键值对集合，但它的键必须是 **对象**，并且与 `WeakMap` 相关联的对象是“弱引用”。这意味着，如果没有其他引用指向 `WeakMap` 中的对象，它们会被垃圾回收机制自动回收。
+-   `set(key, value)`：设置键值对。
+-   `get(key)`：根据键获取对应的值。
+-   `has(key)`：检查是否存在指定的键。
+-   `delete(key)`：删除指定的键值对。
+```js
+let obj = {};
+let weakMap = new WeakMap();
+weakMap.set(obj, 'value');
+console.log(weakMap.get(obj)); // value
+```
+Set
+`Set` 是一个集合，存储唯一的值。与数组不同，`Set` 不允许重复的元素。
+-   `add(value)`：添加一个新的值。
+-   `has(value)`：检查集合中是否存在该值。
+-   `delete(value)`：删除指定的值。
+-   `clear()`：清空集合。
+
+WeakSet
+`WeakSet` 类似于 `Set`，但是它只能存储 **对象** 且对对象是弱引用。这意味着如果 `WeakSet` 中的对象没有其他引用，它们会被垃圾回收机制自动回收。
+-   `add(value)`：向 `WeakSet` 添加一个对象。
+-   `has(value)`：检查 `WeakSet` 是否包含某个对象。
+-   `delete(value)`：删除某个对象。
+
+
 
 # 12. 信息传递
 1. 通过createContext和useContext 来创建全局的变量，Provider提供数据，useContext消费数据,适用于多层级组件的通信，避免了 props 传递过多。
@@ -904,3 +939,44 @@ function App() {
   );
 }
 ```
+
+# 25 节流
+函数在 n 秒内只执行一次，如果 n 秒内多次触发，则忽略执行
+```js
+//闭包
+function throttle(fn,wait) {
+const startTime = Date().now
+return function(){
+	const nowTime = Date().now
+	if(nowTime - startTime >= wait){
+		startTime = nowTime
+		return fn.apply(this,arguments) 
+		}
+	}
+}
+```
+# 26 防抖
+```js
+function(fn, wait, immediate = false){
+	const timer = null 
+	return function(){
+		if(timer){
+			clearInterval(timer)
+			timer = null
+		}
+		if(immediate){
+			const flag = !timer
+			flag&&fn.apply(this,arguments)
+			timer = setTimeout(()=>{timer = null},await		
+			}else{
+			timer= setTimeout(fn.apply(this,arguments),wait) 
+		}
+	}
+		
+	
+}
+```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE5MTUwMTY4NjEsMTAyNTY2NTI0MywyMD
+U4MTg3NzI0LC01OTA1MDY0NzNdfQ==
+-->

@@ -22,6 +22,26 @@ HTML5 支持在 HTML 文档中嵌入 SVG（可缩放矢量图形），用于绘�
 允许在后台运行 JavaScript 代码，不会阻塞主线程，适合执行大量运算和数据处理。
 1.10 WebSocket：
 实现了客户端与服务器之间的双向通信，比传统的 HTTP 请求更高效，适合即时通讯、实时数据同步等场景。
+# 2. get post
+2.1 url可见性
+get，url中参数可见
+post，url中参数不可见
+2.2 数据传输
+get，通过拼接url进行参数传输
+post，通过body进行参数传输
+2.3 缓存性
+get，请求可以缓存
+post，请求不可以缓存
+2.4 后退页面请求
+get，请求页面后退时，不产生影响
+post，请求页面后退时，会重新提交请求
+2.5 数据包
+get， 产生一个tcp包，浏览器会把http header和data一并发送出去，服务器响应200返回数据；
+post，产生两个tcp包，浏览器先发送header，服务器响应100 continue，浏览器响应 200 ok 返回数据
+# 3. 浏览器的重排（Reflow）和重绘（Repaint）
+
+-   **重排**：当 DOM 或样式发生变化时，浏览器需要重新计算元素的位置和大小。频繁的重排会导致性能下降，因为每次重排都会导致页面重新渲染。
+-   **重绘**：当元素的外观发生变化时（如颜色、背景等），浏览器需要重新渲染页面。重绘相较于重排性能消耗较少，但大量的重绘也会影响渲染速度。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzQ3NzQwNDddfQ==
+eyJoaXN0b3J5IjpbMTIyMDIyMjQ2LC0yMTI0ODA4MzM2XX0=
 -->
