@@ -957,8 +957,13 @@ return function(){
 ```
 # 26 防抖
 ```js
-f
+function(fn, wait, immediate = false){
+	const timer = null 
+	return function(){
+	if(timer){
+	}
+}
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzk0Njc2MDU0LC01OTA1MDY0NzNdfQ==
+eyJoaXN0b3J5IjpbMjU4NDE3MzEyLC01OTA1MDY0NzNdfQ==
 -->
