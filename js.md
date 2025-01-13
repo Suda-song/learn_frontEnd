@@ -942,8 +942,8 @@ function App() {
 
 # 25 节流
 ```js
-
+function 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzNDc1MzIxMywtNTkwNTA2NDczXX0=
+eyJoaXN0b3J5IjpbLTE1MDU1MDA3NjUsLTU5MDUwNjQ3M119
 -->
