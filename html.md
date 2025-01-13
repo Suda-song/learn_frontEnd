@@ -23,7 +23,11 @@ HTML5 支持在 HTML 文档中嵌入 SVG（可缩放矢量图形），用于绘�
 1.10 WebSocket：
 实现了客户端与服务器之间的双向通信，比传统的 HTTP 请求更高效，适合即时通讯、实时数据同步等场景。
 # 2. get post
-
+2.1 url可见性
+get，url中参数可见
+post，url中参数不可见
+2.2 数据传输
+get，通过拼接
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5MjEzNjI4Nl19
+eyJoaXN0b3J5IjpbMTQ5NjY2MDIzXX0=
 -->
