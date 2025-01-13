@@ -941,6 +941,7 @@ function App() {
 ```
 
 # 25 节流
+函数在 n 秒内只执行一次，如果 n 秒内多次触发，则忽略执行
 ```js
 //闭包
 function throttle(fn,wait) {
@@ -954,7 +955,10 @@ return function(){
 	}
 }
 ```
-# 
+# 26 防抖
+```js
+
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NDg5NDcxODQsLTU5MDUwNjQ3M119
+eyJoaXN0b3J5IjpbNTA1ODIyNDcyLC01OTA1MDY0NzNdfQ==
 -->
