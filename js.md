@@ -965,7 +965,7 @@ function(fn, wait, immediate = false){
 			timer = null
 		}
 		if(immediate){
-			
+			con's
 		}else{
 			settimeout 
 		}
@@ -975,6 +975,6 @@ function(fn, wait, immediate = false){
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyNTY2NTI0MywyMDU4MTg3NzI0LC01OT
-A1MDY0NzNdfQ==
+eyJoaXN0b3J5IjpbMTczNTEzMjM3NywxMDI1NjY1MjQzLDIwNT
+gxODc3MjQsLTU5MDUwNjQ3M119
 -->
