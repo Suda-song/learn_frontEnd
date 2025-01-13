@@ -354,6 +354,10 @@ Undefined：表示一个变量声明了但未赋值。
 Null：表示一个空值或无值。
 Symbol：表示一个唯一的、不可变的值。
 BigInt：表示超大整数。
+## 数据结构：
+Map
+键值对：每个 `Map` 由键（key）和值（value）组成。
+
 
 # 12. 信息传递
 1. 通过createContext和useContext 来创建全局的变量，Provider提供数据，useContext消费数据,适用于多层级组件的通信，避免了 props 传递过多。
@@ -904,3 +908,6 @@ function App() {
   );
 }
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNTI4MTQ4MTExXX0=
+-->
