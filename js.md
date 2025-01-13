@@ -939,6 +939,11 @@ function App() {
   );
 }
 ```
+
+# 25 节流
+```js
+
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5MDUwNjQ3M119
+eyJoaXN0b3J5IjpbMjAzNDc1MzIxMywtNTkwNTA2NDczXX0=
 -->
