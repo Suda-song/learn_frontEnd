@@ -364,7 +364,26 @@ Map
 -   `clear()`：清空所有键值对。、
 
 WeakMap
+`WeakMap` 是一个类似 `Map` 的键值对集合，但它的键必须是 **对象**，并且与 `WeakMap` 相关联的对象是“弱引用”。这意味着，如果没有其他引用指向 `WeakMap` 中的对象，它们会被垃圾回收机制自动回收。
+-   `set(key, value)`：设置键值对。
+-   `get(key)`：根据键获取对应的值。
+-   `has(key)`：检查是否存在指定的键。
+-   `delete(key)`：删除指定的键值对。
+```js
+let obj = {};
+let weakMap = new WeakMap();
+weakMap.set(obj, 'value');
+console.log(weakMap.get(obj)); // value
+```
+Set
+`Set` 是一个集合，存储唯一的值。与数组不同，`Set` 不允许重复的元素。
+-   `add(value)`：添加一个新的值。
+-   `has(value)`：检查集合中是否存在该值。
+-   `delete(value)`：删除指定的值。
+-   `clear()`：清空集合。
 
+WeakSet
+`WeakSet` 类似于 `Set`，但是它只能存储 **对象** 且对对象是弱引用。这意味着如果 `WeakSet` 中的对象没有其他引用，它们会被垃圾回收机制自动回收。
 
 
 
@@ -918,5 +937,5 @@ function App() {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTI1ODUwMDNdfQ==
+eyJoaXN0b3J5IjpbLTIwODUwMzQ1Ml19
 -->
