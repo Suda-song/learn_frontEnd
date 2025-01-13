@@ -27,7 +27,11 @@ HTML5 支持在 HTML 文档中嵌入 SVG（可缩放矢量图形），用于绘�
 get，url中参数可见
 post，url中参数不可见
 2.2 数据传输
-get，通过拼接
+get，通过拼接url进行参数传输
+post，通过body进行参数传输
+2.3 缓存性
+get，请求可以缓存
+post，请求不可以缓存
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ5NjY2MDIzXX0=
+eyJoaXN0b3J5IjpbMTk5MjY5MjkxMV19
 -->
