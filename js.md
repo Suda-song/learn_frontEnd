@@ -357,6 +357,15 @@ BigInt：表示超大整数。
 ## 数据结构：
 Map
 键值对：每个 `Map` 由键（key）和值（value）组成。
+-   `set(key, value)`：设置键值对。
+-   `get(key)`：根据键获取对应的值。
+-   `has(key)`：检查是否存在指定的键。
+-   `delete(key)`：删除指定的键值对。
+-   `clear()`：清空所有键值对。、
+
+WeakMap
+
+
 
 
 # 12. 信息传递
@@ -909,5 +918,5 @@ function App() {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTI4MTQ4MTExXX0=
+eyJoaXN0b3J5IjpbLTE0MTI1ODUwMDNdfQ==
 -->
