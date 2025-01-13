@@ -942,8 +942,12 @@ function App() {
 
 # 25 节流
 ```js
-function 
+//闭包
+function throttle(fn,wait) {
+const startTime = Date().now
+if ()
+}
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDU1MDA3NjUsLTU5MDUwNjQ3M119
+eyJoaXN0b3J5IjpbMTIzOTk2NTkxNSwtNTkwNTA2NDczXX0=
 -->
