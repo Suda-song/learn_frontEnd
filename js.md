@@ -945,9 +945,14 @@ function App() {
 //闭包
 function throttle(fn,wait) {
 const startTime = Date().now
-if ()
+return function(){
+	const nowTime = Date().now
+	if(nowTime - startTime >= wait){
+		startTime = nowTime 
+		}
+	}
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzOTk2NTkxNSwtNTkwNTA2NDczXX0=
+eyJoaXN0b3J5IjpbMTY4MTgzMDI4NiwtNTkwNTA2NDczXX0=
 -->
