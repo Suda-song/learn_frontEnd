@@ -32,6 +32,8 @@ post，通过body进行参数传输
 2.3 缓存性
 get，请求可以缓存
 post，请求不可以缓存
+2.4 后退页面请求
+get，请求页面后退时，
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5MjY5MjkxMV19
+eyJoaXN0b3J5IjpbMTI0OTM3NTIzNV19
 -->
