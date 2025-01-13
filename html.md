@@ -22,6 +22,8 @@ HTML5 支持在 HTML 文档中嵌入 SVG（可缩放矢量图形），用于绘�
 允许在后台运行 JavaScript 代码，不会阻塞主线程，适合执行大量运算和数据处理。
 1.10 WebSocket：
 实现了客户端与服务器之间的双向通信，比传统的 HTTP 请求更高效，适合即时通讯、实时数据同步等场景。
+# 2. get post
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzQ3NzQwNDddfQ==
+eyJoaXN0b3J5IjpbLTc5MjEzNjI4Nl19
 -->
