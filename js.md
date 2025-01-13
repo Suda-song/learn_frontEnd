@@ -384,6 +384,9 @@ Set
 
 WeakSet
 `WeakSet` 类似于 `Set`，但是它只能存储 **对象** 且对对象是弱引用。这意味着如果 `WeakSet` 中的对象没有其他引用，它们会被垃圾回收机制自动回收。
+-   `add(value)`：向 `WeakSet` 添加一个对象。
+-   `has(value)`：检查 `WeakSet` 是否包含某个对象。
+-   `delete(value)`：删除某个对象。
 
 
 
@@ -937,5 +940,5 @@ function App() {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwODUwMzQ1Ml19
+eyJoaXN0b3J5IjpbLTU5MDUwNjQ3M119
 -->
