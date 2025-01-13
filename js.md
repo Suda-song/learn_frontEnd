@@ -960,10 +960,14 @@ return function(){
 function(fn, wait, immediate = false){
 	const timer = null 
 	return function(){
-	if(timer){
-	}
+		if(timer){}
+			clearInterval(timer)
+			timer = null
+		}
+		
+	
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjU4NDE3MzEyLC01OTA1MDY0NzNdfQ==
+eyJoaXN0b3J5IjpbMjA1ODE4NzcyNCwtNTkwNTA2NDczXX0=
 -->
