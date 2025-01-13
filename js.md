@@ -957,8 +957,8 @@ return function(){
 ```
 # 26 防抖
 ```js
-
+f
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTA1ODIyNDcyLC01OTA1MDY0NzNdfQ==
+eyJoaXN0b3J5IjpbNzk0Njc2MDU0LC01OTA1MDY0NzNdfQ==
 -->
