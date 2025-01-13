@@ -948,11 +948,13 @@ const startTime = Date().now
 return function(){
 	const nowTime = Date().now
 	if(nowTime - startTime >= wait){
-		startTime = nowTime 
+		startTime = nowTime
+		return fn.apply(this,arguments) 
 		}
 	}
 }
 ```
+# 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY4MTgzMDI4NiwtNTkwNTA2NDczXX0=
+eyJoaXN0b3J5IjpbLTE1NDg5NDcxODQsLTU5MDUwNjQ3M119
 -->
