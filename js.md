@@ -965,8 +965,10 @@ function(fn, wait, immediate = false){
 			timer = null
 		}
 		if(immediate){
-			con's
-		}else{
+			const flag = !timer
+			flag&&fn.apply(this,arguments)
+			timer = setTimeout((
+)=>timer = null		}else{
 			settimeout 
 		}
 	}
@@ -975,6 +977,6 @@ function(fn, wait, immediate = false){
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczNTEzMjM3NywxMDI1NjY1MjQzLDIwNT
+eyJoaXN0b3J5IjpbMTU2MDEzMTIxMCwxMDI1NjY1MjQzLDIwNT
 gxODc3MjQsLTU5MDUwNjQ3M119
 -->
