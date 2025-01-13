@@ -38,6 +38,10 @@ post，请求页面后退时，会重新提交请求
 2.5 数据包
 get， 产生一个tcp包，浏览器会把http header和data一并发送出去，服务器响应200返回数据；
 post，产生两个tcp包，浏览器先发送header，服务器响应100 continue，浏览器响应 200 ok 返回数据
+# 3. 浏览器的重排（Reflow）和重绘（Repaint）
+
+-   **重排**：当 DOM 或样式发生变化时，浏览器需要重新计算元素的位置和大小。频繁的重排会导致性能下降，因为每次重排都会导致页面重新渲染。
+-   **重绘**：当元素的外观发生变化时（如颜色、背景等），浏览器需要重新渲染页面。重绘相较于重排性能消耗较少，但大量的重绘也会影响渲染速度。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjQ4MDgzMzZdfQ==
+eyJoaXN0b3J5IjpbMTIyMDIyMjQ2LC0yMTI0ODA4MzM2XX0=
 -->
