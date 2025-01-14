@@ -208,9 +208,11 @@ function updateValue(event: Event): void {
 -   `v-text`：文本插值指令，用于将数据插入到元素的文本内容中。
 -   `v-html`：`HTML` 插值指令，用于将数据作为 `HTML` 解析并插入到元素中。
 
- 
+ provided 父组件中使用
+ inject 子组件中获取
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2NTUzMjUxLC01MjU5MjYwMjcsLTEyNz
-Q2Njc4ODIsMzQ0NDUxMDMyLDgxNTYyMzk0NywyMDQ4NzgxMzIs
-NDE4ODA1MDgxLC03Njk3MzQyNTAsLTIxMDMyMDk3NTNdfQ==
+eyJoaXN0b3J5IjpbMTMxMTE3MDIwOSwtNDY1NTMyNTEsLTUyNT
+kyNjAyNywtMTI3NDY2Nzg4MiwzNDQ0NTEwMzIsODE1NjIzOTQ3
+LDIwNDg3ODEzMiw0MTg4MDUwODEsLTc2OTczNDI1MCwtMjEwMz
+IwOTc1M119
 -->
