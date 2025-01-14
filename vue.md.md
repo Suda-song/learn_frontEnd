@@ -260,9 +260,13 @@ next();
 -   next('/login') - 重定向到其他路由
 
 -   next(error) - 导航失败并触发错误
+## 5.2 路由独享守卫
+针对某一个特定路由进行设置的守卫，它只能在该路由的跳转过程中使用。
+#### `beforeEnter`
+`beforeEnter` 是在路由配置中定义的守卫，用来处理特定路由的跳转逻辑。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTU3ODc4NzMsMTMxMTE3MDIwOSwtND
-Y1NTMyNTEsLTUyNTkyNjAyNywtMTI3NDY2Nzg4MiwzNDQ0NTEw
-MzIsODE1NjIzOTQ3LDIwNDg3ODEzMiw0MTg4MDUwODEsLTc2OT
-czNDI1MCwtMjEwMzIwOTc1M119
+eyJoaXN0b3J5IjpbNDgxMzcwNDY2LDEzMTExNzAyMDksLTQ2NT
+UzMjUxLC01MjU5MjYwMjcsLTEyNzQ2Njc4ODIsMzQ0NDUxMDMy
+LDgxNTYyMzk0NywyMDQ4NzgxMzIsNDE4ODA1MDgxLC03Njk3Mz
+QyNTAsLTIxMDMyMDk3NTNdfQ==
 -->
