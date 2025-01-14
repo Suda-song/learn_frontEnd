@@ -196,11 +196,21 @@ function updateValue(event: Event): void {
   emit('update:modelValue', newValue);
 }
 </script>
+```
+
+# 4 指令
+-   `v-if`：条件渲染指令，根据表达式的真假来决定是否渲染元素。
+-   `v-show`：条件显示指令，根据表达式的真假来决定元素的显示和隐藏。
+-   `v-for`：列表渲染指令，用于根据数据源循环渲染元素列表。
+-   `v-bind ：`：属性绑定指令，用于动态绑定元素属性到 `Vue` 实例的数据。
+-   `v-on`@：事件绑定指令，用于监听 `DOM` 事件，并执行对应的 `Vue` 方法。
+-   `v-model`：双向数据绑定指令，用于在表单元素和 `Vue` 实例的数据之间建立双向绑定关系。
+-   `v-text`：文本插值指令，用于将数据插入到元素的文本内容中。
+-   `v-html`：`HTML` 插值指令，用于将数据作为 `HTML` 解析并插入到元素中。
 
  
-```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyNTkyNjAyNywtMTI3NDY2Nzg4MiwzND
-Q0NTEwMzIsODE1NjIzOTQ3LDIwNDg3ODEzMiw0MTg4MDUwODEs
-LTc2OTczNDI1MCwtMjEwMzIwOTc1M119
+eyJoaXN0b3J5IjpbLTQ2NTUzMjUxLC01MjU5MjYwMjcsLTEyNz
+Q2Njc4ODIsMzQ0NDUxMDMyLDgxNTYyMzk0NywyMDQ4NzgxMzIs
+NDE4ODA1MDgxLC03Njk3MzQyNTAsLTIxMDMyMDk3NTNdfQ==
 -->
