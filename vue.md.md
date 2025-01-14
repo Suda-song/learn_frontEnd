@@ -196,11 +196,101 @@ function updateValue(event: Event): void {
   emit('update:modelValue', newValue);
 }
 </script>
-
- 
 ```
+
+# 4 指令
+-   `v-if`：条件渲染指令，根据表达式的真假来决定是否渲染元素。
+-   `v-show`：条件显示指令，根据表达式的真假来决定元素的显示和隐藏。
+-   `v-for`：列表渲染指令，用于根据数据源循环渲染元素列表。
+-   `v-bind ：`：属性绑定指令，用于动态绑定元素属性到 `Vue` 实例的数据。
+-   `v-on`@：事件绑定指令，用于监听 `DOM` 事件，并执行对应的 `Vue` 方法。
+-   `v-model`：双向数据绑定指令，用于在表单元素和 `Vue` 实例的数据之间建立双向绑定关系。
+-   `v-text`：文本插值指令，用于将数据插入到元素的文本内容中。
+-   `v-html`：`HTML` 插值指令，用于将数据作为 `HTML` 解析并插入到元素中。
+
+ provided 父组件中使用
+ inject 子组件中获取
+# 5 路由相关
+## 5.1 路由守卫
+**全局守卫**：
+
+-   在应用的整个路由配置中生效，适用于所有路由跳转。
+-   分为：`beforeEach`、`afterEach`
+```js
+router.beforeEach(async (to, from, next) => {
+if (to.meta.requiresAuth) {
+	const  userStore = useUserStore();
+	await  userStore.init();
+	const  appConfigStore = useAppConfigStore();
+	await  appConfigStore.init();
+}
+next();
+});
+```
+-   to 参数：
+
+ 类型为  RouteLocationNormalized
+表示即将要进入的目标路由对象
+包含诸如 path, name, params, query, meta 等路由信息
+
+例如：当用户访问 /editor?id=123 时，to 对象会包含这些信息
+
+-   from 参数：
+
+ 类型为 RouteLocationNormalized
+
+表示当前即将离开的路由对象
+
+结构与 to 相同，但包含当前路由的信息
+
+例如：如果用户从首页跳转到编辑器，from 会包含首页的路由信息
+
+-   next 参数：
+
+类型为 NavigationGuardNext
+
+这是一个函数，用于控制导航的行为
+
+调用方式：
+
+-   next() - 继续导航
+
+-   next(false)  - 中断导航
+
+-   next('/login') - 重定向到其他路由
+
+-   next(error) - 导航失败并触发错误
+## 5.2 路由独享守卫
+针对某一个特定路由进行设置的守卫，它只能在该路由的跳转过程中使用。
+- `beforeEnter`
+ 是在路由配置中定义的守卫，用来处理特定路由的跳转逻辑。
+ ```js
+ const router = new Router({
+  routes: [
+    {
+      path: '/about',
+      component: About,
+      beforeEnter: (to, from, next) => {
+        console.log('Before entering About page.');
+        next();  // 必须调用 next() 来继续跳转
+      }
+    }
+  ]
+});
+```
+
+## 5.3 组件内守卫
+`beforeRouterEnter`、`beforeRouterUpdate`、`beforeRouterLeave`
+组件生命周期
+
+-   **导航触发：** 当用户点击链接、调用 `router.push()` 或手动修改 URL 时，Vue Router 会开始执行导航过程。
+-   **`beforeEach`**：全局的前置守卫，在导航开始时调用。
+-   **`beforeEnter`**：路由独享守卫，在进入某个特定路由时调用。
+-   **`beforeRouteEnter`**：组件内守卫，在组件加载前调用。
+-   **`afterEach`**：全局的后置守卫，在导航完成后调用。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyNTkyNjAyNywtMTI3NDY2Nzg4MiwzND
-Q0NTEwMzIsODE1NjIzOTQ3LDIwNDg3ODEzMiw0MTg4MDUwODEs
-LTc2OTczNDI1MCwtMjEwMzIwOTc1M119
+eyJoaXN0b3J5IjpbOTg3MDE5MjYyLDEzMTExNzAyMDksLTQ2NT
+UzMjUxLC01MjU5MjYwMjcsLTEyNzQ2Njc4ODIsMzQ0NDUxMDMy
+LDgxNTYyMzk0NywyMDQ4NzgxMzIsNDE4ODA1MDgxLC03Njk3Mz
+QyNTAsLTIxMDMyMDk3NTNdfQ==
 -->
