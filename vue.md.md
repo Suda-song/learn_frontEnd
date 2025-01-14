@@ -280,10 +280,17 @@ next();
 ```
 
 ## 5.3 组件内守卫
+`beforeRouterEnter`、`beforeRouterUpdate`、`beforeRouterLeave`
+组件生命周期
 
+-   **导航触发：** 当用户点击链接、调用 `router.push()` 或手动修改 URL 时，Vue Router 会开始执行导航过程。
+-   **`beforeEach`**：全局的前置守卫，在导航开始时调用。
+-   **`beforeEnter`**：路由独享守卫，在进入某个特定路由时调用。
+-   **`beforeRouteEnter`**：组件内守卫，在组件加载前调用。
+-   **`afterEach`**：全局的后置守卫，在导航完成后调用。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzAwODMyMjcsMTMxMTE3MDIwOSwtND
-Y1NTMyNTEsLTUyNTkyNjAyNywtMTI3NDY2Nzg4MiwzNDQ0NTEw
-MzIsODE1NjIzOTQ3LDIwNDg3ODEzMiw0MTg4MDUwODEsLTc2OT
-czNDI1MCwtMjEwMzIwOTc1M119
+eyJoaXN0b3J5IjpbOTg3MDE5MjYyLDEzMTExNzAyMDksLTQ2NT
+UzMjUxLC01MjU5MjYwMjcsLTEyNzQ2Njc4ODIsMzQ0NDUxMDMy
+LDgxNTYyMzk0NywyMDQ4NzgxMzIsNDE4ODA1MDgxLC03Njk3Mz
+QyNTAsLTIxMDMyMDk3NTNdfQ==
 -->
