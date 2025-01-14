@@ -210,9 +210,45 @@ function updateValue(event: Event): void {
 
  provided 父组件中使用
  inject 子组件中获取
+
+-   to 参数：
+
+-   类型为  RouteLocationNormalized
+
+-   表示即将要进入的目标路由对象
+
+-   包含诸如 path, name, params, query, meta 等路由信息
+
+-   例如：当用户访问 /editor?id=123 时，to 对象会包含这些信息
+
+-   from 参数：
+
+-   类型为 RouteLocationNormalized
+
+-   表示当前即将离开的路由对象
+
+-   结构与 to 相同，但包含当前路由的信息
+
+-   例如：如果用户从首页跳转到编辑器，from 会包含首页的路由信息
+
+-   next 参数：
+
+-   类型为 NavigationGuardNext
+
+-   这是一个函数，用于控制导航的行为
+
+-   调用方式：
+
+-   next() - 继续导航
+
+-   next(false)  - 中断导航
+
+-   next('/login') - 重定向到其他路由
+
+-   next(error) - 导航失败并触发错误
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMxMTE3MDIwOSwtNDY1NTMyNTEsLTUyNT
-kyNjAyNywtMTI3NDY2Nzg4MiwzNDQ0NTEwMzIsODE1NjIzOTQ3
-LDIwNDg3ODEzMiw0MTg4MDUwODEsLTc2OTczNDI1MCwtMjEwMz
-IwOTc1M119
+eyJoaXN0b3J5IjpbLTE1NTgzODEwNzcsMTMxMTE3MDIwOSwtND
+Y1NTMyNTEsLTUyNTkyNjAyNywtMTI3NDY2Nzg4MiwzNDQ0NTEw
+MzIsODE1NjIzOTQ3LDIwNDg3ODEzMiw0MTg4MDUwODEsLTc2OT
+czNDI1MCwtMjEwMzIwOTc1M119
 -->
