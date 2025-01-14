@@ -216,7 +216,24 @@ function updateValue(event: Event): void {
 
 -   在应用的整个路由配置中生效，适用于所有路由跳转。
 -   分为：`beforeEach`、`afterEach`
+```js
+router.beforeEach(async (to, from, next) => {
 
+if (to.meta.requiresAuth) {
+const  userStore = useUserStore();
+await  userStore.init();
+// const companyStore = useCompanyStore();
+
+// await companyStore.init();
+
+const  appConfigStore = useAppConfigStore();
+
+await  appConfigStore.init();
+
+}
+next();
+});
+```
 -   to 参数：
 
  类型为  RouteLocationNormalized
@@ -251,7 +268,7 @@ function updateValue(event: Event): void {
 
 -   next(error) - 导航失败并触发错误
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDYwNjEzMiwxMzExMTcwMjA5LC00Nj
+eyJoaXN0b3J5IjpbMTQ4NjcyODIyMiwxMzExMTcwMjA5LC00Nj
 U1MzI1MSwtNTI1OTI2MDI3LC0xMjc0NjY3ODgyLDM0NDQ1MTAz
 Miw4MTU2MjM5NDcsMjA0ODc4MTMyLDQxODgwNTA4MSwtNzY5Nz
 M0MjUwLC0yMTAzMjA5NzUzXX0=
