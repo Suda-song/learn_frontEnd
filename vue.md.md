@@ -218,18 +218,11 @@ function updateValue(event: Event): void {
 -   分为：`beforeEach`、`afterEach`
 ```js
 router.beforeEach(async (to, from, next) => {
-
 if (to.meta.requiresAuth) {
-const  userStore = useUserStore();
-await  userStore.init();
-// const companyStore = useCompanyStore();
-
-// await companyStore.init();
-
-const  appConfigStore = useAppConfigStore();
-
-await  appConfigStore.init();
-
+	const  userStore = useUserStore();
+	await  userStore.init();
+	const  appConfigStore = useAppConfigStore();
+	await  appConfigStore.init();
 }
 next();
 });
@@ -268,8 +261,8 @@ next();
 
 -   next(error) - 导航失败并触发错误
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ4NjcyODIyMiwxMzExMTcwMjA5LC00Nj
-U1MzI1MSwtNTI1OTI2MDI3LC0xMjc0NjY3ODgyLDM0NDQ1MTAz
-Miw4MTU2MjM5NDcsMjA0ODc4MTMyLDQxODgwNTA4MSwtNzY5Nz
-M0MjUwLC0yMTAzMjA5NzUzXX0=
+eyJoaXN0b3J5IjpbLTExOTU3ODc4NzMsMTMxMTE3MDIwOSwtND
+Y1NTMyNTEsLTUyNTkyNjAyNywtMTI3NDY2Nzg4MiwzNDQ0NTEw
+MzIsODE1NjIzOTQ3LDIwNDg3ODEzMiw0MTg4MDUwODEsLTc2OT
+czNDI1MCwtMjEwMzIwOTc1M119
 -->
