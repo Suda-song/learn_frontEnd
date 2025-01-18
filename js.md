@@ -247,14 +247,38 @@ function App() {
 export default App;
 ```
 
-# 8. call apply bind
+# 8. this
+## 8.1. 默认绑定（默认指向全局对象）
+在普通的函数调用中，this 默认指向 全局对象：
+- 在浏览器中，指向 window。
+- 在 Node.js 中，指向 global。
+```js
+function show() {
+  console.log(this);  // 在浏览器中输出 window
+}
+show();
+```
+## 8.2 隐式绑定（方法调用）
+- 当一个函数作为对象的方法被调用时，this 指向调用该方法的对象。
+```js
+const person = {
+  name: 'Alice',
+  greet() {
+    console.log(this.name);
+  }
+};
+
+person.greet();  // 输出 'Alice'
+
+```
+## 8.3 显式绑定（使用 call、apply、bind）
 call 和 apply：
-
-当你需要立即执行函数，并且控制 this 的值以及传递给函数的参数时，使用 call 或 apply。
-call 更适合函数的参数是独立的值，而 apply 更适合参数是数组。
+- 当你需要立即执行函数，并且控制 this 的值以及传递给函数的参数时，使用 call 或 apply。
+- call 更适合函数的参数是独立的值，而 apply 更适合参数是数组。
+call(thisArg, arg1, arg2, ...)
+apply(thisArg, [arg1, arg2, ...])
 bind：
-
-当你需要创建一个新的函数，稍后执行，并且该函数要绑定特定的 this 和初始参数时，使用 bind。
+- 当你需要创建一个新的函数，稍后执行，并且该函数要绑定特定的 this 和初始参数时，使用 bind。
 ```js
 function greet(name) {
   console.log(`Hello, ${name}`);
@@ -267,8 +291,15 @@ greet.call(null, 'Alice');  // Hello, Alice
 greet.apply(null, ['Bob']);  // Hello, Bob
 
 // 3. 使用 bind
-const boundGreet = greet.bind(null, 'Charlie');
-boundGreet();  // Hello, Charlie
+function greet(city, country) {
+  console.log(this.name + ' from ' + city + ', ' + country);
+}
+
+const person = { name: 'Alice' };
+
+const boundGreet = greet.bind(person, 'Paris');
+boundGreet('France');  // 输出 'Alice from Paris, France'
+
 
 ```
 ```js
@@ -277,6 +308,41 @@ function greet() {
 }
 const person = { name: "Alice" };
 greet.call(person); // 输出 "Alice"
+```
+## 8.4 箭头函数中的 this
+- 箭头函数与普通函数不同，它 没有自己的 this，而是从定义时的上下文中继承 this。换句话说，箭头函数的 this 绑定是 静态的，它会继承外部函数的 this。
+```js
+const person = {
+  name: 'Alice',
+  greet: function() {
+    setTimeout(() => {
+      console.log(this.name);  // `this` 继承了 `greet` 方法中的 `this`，指向 `person`
+    }, 1000);
+  }
+};
+
+person.greet();  // 输出 'Alice'
+
+```
+## 8.5 构造函数
+当使用构造函数创建对象时，this 指向当前正在创建的实例对象。
+```js
+function Person(name) {
+  this.name = name;
+}
+
+const person = new Person('Alice');
+console.log(person.name);  // 输出 'Alice'
+```
+## 8.6 this 在事件处理函数中的指向
+在事件处理函数中，this 通常指向触发事件的 DOM 元素。
+```js
+const button = document.querySelector('button');
+
+button.addEventListener('click', function() {
+  console.log(this);  // `this` 指向触发事件的按钮元素
+});
+
 ```
 
 # 9.深浅拷贝的区别就是，浅拷贝改变新数据的情况下原始数据也会改变
