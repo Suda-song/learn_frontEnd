@@ -185,15 +185,15 @@ function selectionSort(arr){
  * @param {Object} arr
  */
 function insertSort(arr){
-	n=arr.length
-	for(i = 1 ;i<n ;i++ ){
+	n= arr.length
+	for(i=1;i<n;i++){
 		let current = arr[i]
-		let j=i-1
+		let j= i-1;
 		while(j>=0&&arr[j]>current){
-			arr[j+1]= arr[j]
+			arr[j+1] = arr[j]
 			j--
 		}
-		arr[j]=current
+		arr[j+1]=current
 	}
 	return arr
 }
@@ -202,18 +202,18 @@ function insertSort(arr){
  * @param {Object} arr
  */
 function shellSort(arr) {
-  for (let gap = Math.floor(arr.length / 2); gap > 0; gap = Math.floor(gap / 2)) {
-    for (let i = gap; i < arr.length; i++) {
-      let current = arr[i];
-      let j = i - gap;
-      while (j >= 0 && arr[j] > current) {
-        arr[j + gap] = arr[j];
-        j -= gap;
-      }
-      arr[j] = current;
-    }
-  }
-  return arr;
+	let n =arr.length
+	for(let gap = Math.floor(n/2);gap>0;gap=Math.floor(gap/2))
+		for(let i = gap; i<n;i++){
+			let current = arr[i]
+			let j = i-gap
+			while(j>=0&&arr[j]>current){
+				arr[j+gap] = arr[j]
+				j-=gap
+			}
+			arr[j+gap] = current
+		}
+		return arr
 }
 
 /** 归并排序
@@ -242,4 +242,205 @@ function merge(left,right){
 		}
 	}
 	return result.concat(left.slice(leftIndex)).concat(right(rightIndex))
+}
+/** 快速排序
+ * @param {Object} arr
+ */
+function quickSort(arr){
+	if(arr.length<=1)
+		return arr 
+	const pivot = arr[0]
+	const left =[]
+	const right = []
+	for(let i=1; i<arr.length;i++){
+		if(arr[i]<=pivot){
+			left.push(arr[i])
+		}else {
+			right.push(arr[i])
+		}
+	}
+	return quickSort(left).concat(pivot,quickSort(right))
+}
+
+/** 快速排序
+ * @param {Object} arr
+ * @param {number} n
+ * @param {number} i 堆顶
+ */
+function heapSort(arr){
+	let n = arr.length
+	for(let i = Math.floor(n/2)-1;i>=0;i--){
+		heapify(arr,n,i)
+	}
+	for(let i =n-1;i>0,i--){
+		[arr[0],arr[i]] = [arr[i],arr[0]]
+		heapify(arr,n,0)
+	}
+	return arr
+}
+function heapify(arr,n,i){
+	const largest = i
+	const left=2*i+1
+	const right = 2*i+2
+	if(left<n&&arr[left]>arr[largest])
+		largest = left
+	if(right<n&&arr[right]>arr[largest])
+		largest = right
+	if(largest!==i){
+		[arr[i],arr[largest]]=[arr[largest],arr[i]]
+		heapify(arr,n,largest)
+	}
+}
+
+/** 基数排序
+ * @param {Object} arr
+ */
+function radixSort(arr){
+	const maxdigit = getmaxdigit(arr)
+	for(let digit = 0;digit<maxdigit;digit++){
+		const bucketList = Array.from({length:10},()=>{})
+		for(let i =0;i<arr.length;i++){
+			const digitValue =getDigitValue(arr[i],digit)
+			bucketList[digitValue].push(arr[i])
+		}
+		arr.bucketList.flat()
+	}
+	return arr
+}
+
+function getmaxdigit(arr){
+	let max = 0
+	for(let i =0 ;i<arr.length;i++)
+		max = Math.max(max,arr[i].toString().length)
+	return max
+}
+
+function getDigitValue(num,digit){
+	return Math.floor(Math.abs(num)/Math.pow(10,digit))%10
+}
+
+/** 函数柯里化
+ * 用法：函数柯里化是一种将接受多个参数的函数转换为接受一系列单一参数的函数的技术
+ * 思路：
+ *  1、使用 fn.length 获取函数的形参数量
+ *  2、如果没有传入初始参数数组 则将其初始化为空数组 在递归的时候会接受上一次的形参
+ *  3、返回一个闭包函数 接受函数的实参 将 args 中的形参和当前的形参进行合并 得到 newArgs
+ *  4、如果新的参数数组 newArgs 长度大于等于 length 函数的形参数量 调用 apply 执行函数 传入 newArgs
+ *  5、如果新的参数数组长度小于函数的形参数量 则再次调用 curry 函数 将新的参数数组作为初始参数传入 返回一个新的闭包函数
+ * @param {*} fn
+ * @param {*} args
+ * @return {*} 
+ */
+
+function curry(fn,args){
+	const length = fn.length
+	args=args||[]
+	return function(){
+		const newArgs=[...args,...arguments]
+		if(newArgs.length>=length){
+			return fn.apply(this,newArgs)
+		}else{
+			return curry(fn,newArgs)
+		}
+	}
+}
+
+/** promise
+ * 构造函数：定义 state 和 value，管理 pending、fulfilled 和 rejected 状态。
+ * then 方法：注册成功和失败的回调函数，并支持链式调用。
+ * catch 方法：处理错误。
+ * resolve 和 reject 静态方法：返回成功或失败的 Promise。
+ * resolvePromise：确保返回值符合 Promise 的规范。
+ */
+class myPromise{
+	constructor(executor){
+		this.state = 'pending' //初始状态
+		this.value = undefined
+		this.reason = undefined
+		this.onFulfillCallbacks = []
+		this.onRejectedCallbacks = []
+
+		const resolve = (value) => {
+			this.state = 'fulfilled'
+			this.value = 'value'
+			this.onFulfillCallbacks.forEach(fn=>fn(value))
+		}
+		const reject = (reason) => {
+			this.state = 'rejected'
+			this.reason = reason
+			this.onRejectedCallbacks.forEach(fn=>fn(reason))
+		}
+
+		try{
+			executor(resolve,reject)
+		}catch(err){
+			reject(err)
+		}
+	}
+	then(onFulfilled,onRejected){
+
+		return new myPromise((resolve,reject)=>{
+			onFulfilled = typeof onFulfilled === 'function'? onFulfilled:(value)=>value
+			onRejected = typeof onRejected === 'function'?onRejected:(reason)=>{throw reason}
+			if(this.state === 'fulfilled'){
+				setTimeout(()=>{
+					try{
+						const x = onFulfilled(this.value)
+						resolvePromise(x,resolve,reject)
+					}catch(err){
+						reject(err)
+					}
+				},0) //setTimeout 将 onFulfilled(this.value) 的调用推入任务队列。即使我们设置了 0 延迟，它也会在当前栈中的其他代码执行完毕之后才被调用。
+			}
+			if(this.state === 'rejected'){
+				setTimeout(()=>{
+					try{
+						const x = onRejected(this.value)
+						resolvePromise(x, resolve,reject)
+					}catch(err){
+						reject(err)
+					}
+				},0)	
+			}
+			if(this.state === 'pending'){
+				this.onFulfillCallbacks.push(()=>{
+					setTimeout(()=>{
+						try{
+							const x = onFulfilled(this.value)
+							resolvePromise(x,resolve,reject)
+						}catch(err){
+							reject(err)
+						}
+						},0)
+				})
+				this.onRejectedCallbacks.push(()=>{
+					setTimeout(()=>{
+						try{
+							const x = onRejected(this.value)
+							resolvePromise(x, resolve,reject)
+						}catch(err){
+							reject(err)
+						}
+					},0)						
+				})	
+			}
+		})
+	}
+
+	catch(onRejected){
+		return this.return(null,onRejected)
+	}
+	static resolve(value){
+		return new myPromise((resolve)=>resolve(value))
+	}
+	static reject(reason){
+		return new myPromise((_,reject)=>reject(reason))
+	} 
+	function resolvePromise(x,resolve,reject){
+		if(x instanceof myPromise){
+			x.then(resolve,reject)
+		}else{
+			resolve(x)
+		}
+	}
 }
