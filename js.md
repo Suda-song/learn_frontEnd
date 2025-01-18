@@ -1005,44 +1005,10 @@ function App() {
   );
 }
 ```
-
-# 25 节流
-函数在 n 秒内只执行一次，如果 n 秒内多次触发，则忽略执行
-```js
-//闭包
-function throttle(fn,wait) {
-const startTime = Date().now
-return function(){
-	const nowTime = Date().now
-	if(nowTime - startTime >= wait){
-		startTime = nowTime
-		return fn.apply(this,arguments) 
-		}
-	}
-}
-```
-# 26 防抖
-```js
-function(fn, wait, immediate = false){
-	const timer = null 
-	return function(){
-		if(timer){
-			clearInterval(timer)
-			timer = null
-		}
-		if(immediate){
-			const flag = !timer
-			flag&&fn.apply(this,arguments)
-			timer = setTimeout(()=>{timer = null},await		
-			}else{
-			timer= setTimeout(fn.apply(this,arguments),wait) 
-		}
-	}
-		
-	
-}
-```
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTUwMTY4NjEsMTAyNTY2NTI0MywyMD
-U4MTg3NzI0LC01OTA1MDY0NzNdfQ==
--->
+# 数据结构
+Set：无重复值的集合。
+Map：键值对集合，键可以是任何类型。
+WeakSet：类似 Set，但只允许存储对象且为弱引用。
+WeakMap：类似 Map，但只允许对象作为键且为弱引用。
+Array：有序的、可重复的元素集合。
+Queue 和 Stack：常用的队列和栈数据结构。
