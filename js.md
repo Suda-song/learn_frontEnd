@@ -1007,8 +1007,44 @@ function App() {
 ```
 # 数据结构
 Set：无重复值的集合。
+- add(value)
+- delete(value)
+- has(value)
+- clear()
+- size
+- forEach(value, key, set)value（元素的值），value（元素的值），set（当前的 Set 对象）
+- ```js
+const set = new Set([1, 2, 3]);
+const entries = set.entries();
+for (let entry of entries) {
+  console.log(entry);  // 输出 [1, 1], [2, 2], [3, 3]
+}
+  ```
 Map：键值对集合，键可以是任何类型。
+- set(key, value)：设置键值对。如果键已经存在，更新其对应的值。
+- get(key)：获取指定键的值。如果键不存在，返回 undefined。
+- has(key)：判断 Map 是否包含指定的键。
+- delete(key)：删除指定的键值对。
+- clear()：清除 Map 中的所有键值对。
+- size：返回 Map 中元素的数量。
+- keys()、values()、entries()：返回 Map 的键、值或键值对的迭代器。
 WeakSet：类似 Set，但只允许存储对象且为弱引用。
+- add(value)：向 WeakSet 添加一个对象。如果对象已经存在，不会添加。
+- has(value)：判断 WeakSet 是否包含指定的对象。
+- delete(value)：删除指定的对象。
+如果 WeakSet 中的键没有其他引用指向它，它会被垃圾回收
 WeakMap：类似 Map，但只允许对象作为键且为弱引用。
+- set(key, value)：设置一个键值对。键必须是对象。
+- get(key)：获取指定键的值。
+- has(key)：判断 WeakMap 是否包含指定的键。
+- delete(key)：删除指定的键值对
+如果 WeakMap 中的键没有其他引用指向它，它会被垃圾回收
 Array：有序的、可重复的元素集合。
+- push(value)：向数组末尾添加元素。
+- pop()：移除数组末尾的元素。
+- shift()：移除数组开头的元素。
+- unshift(value)：向数组开头添加元素。
+- includes(value)：判断数组是否包含指定的元素。
+- forEach(callback)：遍历数组中的每个元素。
+- map(callback)、filter(callback)、reduce(callback)：常见的高阶数组方法。
 Queue 和 Stack：常用的队列和栈数据结构。
