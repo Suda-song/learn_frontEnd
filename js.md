@@ -1059,3 +1059,36 @@ let x;
 console.log(typeof x);  // 输出: "undefined"
 
 ```
+# fetch完整流程
+```js
+// 发送请求
+fetch('https://jsonplaceholder.typicode.com/posts', {
+  method: 'POST', // 请求方法：POST
+  headers: {
+    'Content-Type': 'application/json', // 请求头：指定请求体格式为JSON
+    'Authorization': 'Bearer your_token_here' // 可选：请求头：认证信息
+  },
+  body: JSON.stringify({
+    title: 'foo',
+    body: 'bar',
+    userId: 1
+  }) // 请求体：发送的数据，转换为 JSON 字符串
+})
+  .then(response => {
+    // 处理响应
+    if (!response.ok) { // 如果响应状态码不是 2xx，抛出错误
+      throw new Error('Network response was not ok');
+    }
+    
+    // 将响应体解析为 JSON
+    return response.json();
+  })
+  .then(data => {
+    // 处理解析后的数据
+    console.log('Response data:', data); // 输出服务器返回的数据
+  })
+  .catch(error => {
+    // 错误处理
+    console.error('There was a problem with the fetch operation:', error);
+  });
+```
