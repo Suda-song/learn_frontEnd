@@ -1048,3 +1048,14 @@ Array：有序的、可重复的元素集合。
 - forEach(callback)：遍历数组中的每个元素。
 - map(callback)、filter(callback)、reduce(callback)：常见的高阶数组方法。
 Queue 和 Stack：常用的队列和栈数据结构。
+# undefined null
+- undefined == null 是true
+- undefined === null 是false
+```js
+let y = null;
+console.log(typeof y);  // 输出: "object"
+
+let x;
+console.log(typeof x);  // 输出: "undefined"
+
+```
