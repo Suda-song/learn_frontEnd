@@ -185,3 +185,9 @@ Access-Control-Allow-Origin: http://example.com //允许哪些源可以访问资
 Access-Control-Allow-Methods: GET, POST, PUT //列出允许的 HTTP 方法（如 GET, POST, PUT）
 Access-Control-Allow-Headers: Authorization //列出允许的请求头（如 Authorization）
 ```
+# tcp拥塞控制
+拥塞控制的过程总结
+	1.	慢启动： 初始阶段，cwnd 逐步增长（指数增长），直到达到 ssthresh。
+	2.	拥塞避免： 当 cwnd 达到 ssthresh 时，增长变得更加保守（线性增长）。
+	3.	丢包： 如果发生丢包，TCP 会执行快速重传和快速恢复机制。
+	4.	调整 ssthresh： 当发生丢包时，ssthresh 被减小，cwnd 被重置为较小的值，然后进入快速恢复阶段。
