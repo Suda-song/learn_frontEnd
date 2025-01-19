@@ -165,4 +165,23 @@ dragleave：当拖拽物体离开目标区域时触发。
 | **加密**        | 不支持                | 需要 TLS 加密             | 内置加密                 |
 | **主要优势**    | 简单，早期实现         | 减少延迟，支持并发请求    | 超低延迟，优化多路复用，适应高延迟环境 |
 
-# 6
+# 6 预检请求
+预检请求是 CORS 的一部分，浏览器会在发送跨域请求之前，自动发送一个 OPTIONS 请求来询问服务器是否允许实际请求。
+
+- 预检请求（OPTIONS 请求）
+浏览器会先发送一个 OPTIONS 请求来询问服务器是否允许实际请求。请求头类似：
+```js
+OPTIONS /api/data HTTP/1.1
+Host: api.example.com
+Origin: http://example.com //表示发起请求的源（即发出请求的网页的源）
+Access-Control-Request-Method: POST //示实际请求使用的 HTTP 方法（例如 POST）
+Access-Control-Request-Headers: Authorization //指示实际请求可能携带的自定义请求头（例如 Authorization）
+```
+- 服务器响应（响应头）
+如果服务器允许此请求，它将返回以下响应,而后浏览器会发送实际请求
+```js
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: http://example.com //允许哪些源可以访问资源，通常是一个域名（如 http://example.com），可以是 *，表示允许所有域访问。
+Access-Control-Allow-Methods: GET, POST, PUT //列出允许的 HTTP 方法（如 GET, POST, PUT）
+Access-Control-Allow-Headers: Authorization //列出允许的请求头（如 Authorization）
+```
