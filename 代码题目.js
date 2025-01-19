@@ -444,3 +444,65 @@ class myPromise{
 		}
 	}
 }
+/** 手写 call
+ * 用法：call 方法用于调用一个函数，并指定函数内部 this 的指向，传入一个对象
+ * const funcSymbol = Symbol('func');：
+ * Symbol('func') 创建了一个唯一的符号值，作为 greet 函数的临时属性名。因为 Symbol 是唯一的，即使 context 对象已经有一个属性叫 'func'，也不会发生冲突。
+ * context[funcSymbol] = this;：
+ * 我们将 greet 函数（即 this）添加到 context 对象上，使用唯一的 funcSymbol 作为属性名，避免了与 context 中已有的属性产生冲突。
+ * delete context[funcSymbol];：
+ * 执行完函数后，删除临时添加的 funcSymbol 属性，确保 context 对象不会被污染。
+ */
+
+const person = {
+  name: 'Alice',
+  greet: function(age, city) {
+    console.log(`Hi, I'm ${this.name}. I'm ${age} years old and I live in ${city}.`);
+  }
+};
+
+Function.prototype.myCall = function(context, ...args) {
+	const funcSymbol = Symbol('func')
+	context[funcSymbol] = this
+	const result = context[funcSymbol](...args)
+	delete context[funcSymbol]
+	return result
+}
+
+// 在 greet 上调用 myCall
+const context = {greet : 'Bob' }
+person.greet.myCall(context, 30, 'New York');
+
+/** 手写 apply
+ */
+Function.prototype.myApply= function(context,args){
+	const fn = Symbol('func')
+	context[fn] = this
+	const result = context[fn](...args)
+	delete context[fn]
+	return result
+}
+
+/** 订阅发布
+ * 订阅相当于把某个事件触发的函数放进队列里
+ * 发布相当于触发队列里的事件
+ */
+class eventEmit{
+	constructor(){
+		this.events = {}
+	}
+	subscribe(event,callback){
+		if(! this.events[event])
+			this.events[event]=[]
+		this.events[event].push(callback)
+	}
+	publish(event,data){
+		if(this.events[event]){
+			this.events[event].forEach(callback=>callback(data))
+		}
+	}
+	unsubscribe(event,callback){
+		if(this.events[event])
+			this.events[event]=this.events[event].filter(cb=>cb!==callback)
+	}
+}
