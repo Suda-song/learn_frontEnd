@@ -1092,3 +1092,25 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
     console.error('There was a problem with the fetch operation:', error);
   });
 ```
+# 事件循环
+
+setTimeout(() => {
+  console.log('setTimeout 1'); // 宏任务 1
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log('Promise 1'); // 微任务 1
+  setTimeout(() => {
+    console.log('setTimeout 2'); // 宏任务 2
+  }, 0);
+  Promise.resolve().then(() => {
+    console.log('Promise 2'); // 微任务 2
+  });
+});
+
+console.log('Script end'); // 同步任务
+执行顺序：
+	1.	首先，输出 Script end（同步任务）。
+	2.	然后，执行微任务队列中的 Promise 1，输出 Promise 1。
+	3.	在 Promise 1 内部，先设定 setTimeout 2（宏任务），然后进入微任务队列，输出 Promise 2。
+	4.	微任务队列执行完后，开始执行宏任务，首先是 setTimeout 1，然后是 setTimeout 2。
